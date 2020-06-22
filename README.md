@@ -233,17 +233,9 @@ change:涨跌幅
 
 }..]
 
- 
-
- 
-
- 
-
- 
-
 公钥，私钥值获取
 
-![img](file:///C:\Users\burgl\AppData\Local\Temp\ksohtml281412\wps1.jpg) 
+![wps1](.\assets\wps1.png)
 
 # **3.** **请求参数加密说明**
 

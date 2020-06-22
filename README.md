@@ -235,7 +235,7 @@ change:涨跌幅
 
 公钥，私钥值获取
 
-![wps1](.\assets\wps1.png)
+![wps1](file:///.\assets\wps1.png)
 
 # **3.** **请求参数加密说明**
 
@@ -243,7 +243,7 @@ Accesskey的值为公钥
 
 **aValue的获取**
 
-![img](file:///C:\Users\burgl\AppData\Local\Temp\ksohtml281412\wps2.jpg) 
+![img](file:///.\assets\wps2.jpg) 
 
 ***String akey=申请是获得到私钥;***
 

@@ -125,22 +125,22 @@
 
 返回类型说明:
 
-| **示例** | //# Request<br />Accesskey：共钥<br />limit:显示的条数<br />offset: 从第几条开始显示<br />sortOrder: 显示的顺序<br />querypath: 查询数据的类型<br />sign1:数签<br /><br />//# Response<br /> {FrontPage：<br /> { <br /> Integer page;// 要查找第几页	<br /> Integer pageSize;// 每页显示多少条	 <br />Long totalPage = 0L;// 总页数	 <br />Long recordsTotal;// 总记录数	 <br />Long recordsFiltered;// 过滤后记录数	 <br />List rows;// 结果集	 <br />Long  total;//总记录数 <br />}<br /><List<Entrust>> Rows：<br />{Entrust：{<br />//委托	 String entrustNum;	<br />//委托时间	 Date entrustTime;	<br />//时间戳	 Long entrustTime_long;  <br />// 委托的来源 (1. 表示人工pc 2. 表示 机器人3.表示人工移动端 4.强制平仓系统生成,5计划委托，6，止盈平仓系统生成，7止损平仓系统生成)	 ***int*** source;	<br />// 委托价格	 BigDecimal entrustPrice;	<br />// 委托数量	 BigDecimal entrustCount;	<br />// TYPE 类型 1 ： 买 2 ： 卖	 <br />int type;	// 委托剩余数量	 <br />BigDecimal surplusEntrustCount;	<br />// STATUS 状态 ---> 0未成交　1部分成交　2已完成　 3部分成交已撤销 4已撤销 	 <br />***int*** status;	//成交金额	 <br />BigDecimal transactionSum;	//委托金额	 <br />BigDecimal entrustSum;	//成交平台价格	 <br />BigDecimal processedPrice;	//币代码	 <br />String coinCode;	//定价币	<br /> String fixPriceCoinCode;}} |
-| -------- | ------------------------------------------------------------ |
-|          |                                                              |
+| **示例**                                                     |
+| ------------------------------------------------------------ |
+| //# Request<br />Accesskey：共钥<br />limit:显示的条数<br />offset: 从第几条开始显示<br />sortOrder: 显示的顺序<br />querypath: 查询数据的类型<br />sign1:数签<br /><br />//# Response<br /> {FrontPage：<br /> { <br /> Integer page;// 要查找第几页	<br /> Integer pageSize;// 每页显示多少条	 <br />Long totalPage = 0L;// 总页数	 <br />Long recordsTotal;// 总记录数	 <br />Long recordsFiltered;// 过滤后记录数	 <br />List rows;// 结果集	 <br />Long  total;//总记录数 <br />}<br /><List<Entrust>> Rows：<br />{Entrust：{<br />//委托	 String entrustNum;	<br />//委托时间	 Date entrustTime;	<br />//时间戳	 Long entrustTime_long;  <br />// 委托的来源 (1. 表示人工pc 2. 表示 机器人3.表示人工移动端 4.强制平仓系统生成,5计划委托，6，止盈平仓系统生成，7止损平仓系统生成)	 ***int*** source;	<br />// 委托价格	 BigDecimal entrustPrice;	<br />// 委托数量	 BigDecimal entrustCount;	<br />// TYPE 类型 1 ： 买 2 ： 卖	 <br />int type;	// 委托剩余数量	 <br />BigDecimal surplusEntrustCount;	<br />// STATUS 状态 ---> 0未成交　1部分成交　2已完成　 3部分成交已撤销 4已撤销 	 <br />***int*** status;	//成交金额	 <br />BigDecimal transactionSum;	//委托金额	 <br />BigDecimal entrustSum;	//成交平台价格	 <br />BigDecimal processedPrice;	//币代码	 <br />String coinCode;	//定价币	<br /> String fixPriceCoinCode;}} |
 
-## ***2.4获取用户信息***
+## **2.4获取用户信息**
 
 1.接口路径：exapi/api/user/getAccountInfo
 2.请求方式：POST
-3.***请求参数***：
+3.**请求参数**：
 
 | 名称      | 必填 | 类型   | 说明                                     |
 | --------- | ---- | ------ | ---------------------------------------- |
 | accesskey | 是   | String | 签名公钥（后台用户管理申请的可以id公钥） |
 | sign1     | 是   | String | 签名值（顺序：accesskey）                |
 
-***返回参数:***
+**返回参数:**
 
 | 名称    | 必填 | 类型                | 说明                           |
 | ------- | ---- | ------------------- | ------------------------------ |
@@ -151,9 +151,9 @@
 
  
 
-| ***示例*** | //# Response<br />obj { <br />isChongbi：是否开启充币需要实名认证 （0 开 1关）<br />isTrade:是否开启交易需要实名认证（ 0开 1关）<br />isTibi：是否开启提币需要实名认证（0开1关）   <br />witfee:提现手续费率   <br />maxWithdrawMoneyOneTime:一次最大提现   <br />languageCode:定价币   <br />maxWithdrawMoney:一天最大提现   <br />List<CoinAccount> coinAccount: {  <br />CoinAccount：{ <br />// 币的id 在wap端使用 	 <br />Long id;	<br />//币代码	   String coinCode;	  <br />// 可用总额	  BigDecimal hotMoney;	 <br />// 冻结总额	  BigDecimal coldMoney;<br />//币的名字	  String name;	 <br />//币的类型	  String currencyType;	 <br />//虚拟账号	  String accountNum;	<br /> //为手机端使用	  String tokenId;	 <br />//币的保留几位小数	  Integer keepDecimalForCoin;	 <br />//api使用0为法币1为虚拟货币	 Integer moneyAndCoin;  <br />}      <br /> user: {    <br /> //用户名/手机号	String username;		<br /> //密码	String password;		    <br />//用户唯一标识	     String userCode;		    <br />//是否实名0没有实名，1实名	      ***int*** isReal;  	     <br />//是否能交易  0可以交易  1不能交易	      ***int*** isChange;  	     <br />//是否禁用  0没有禁用 1禁用	     ***int*** isDelete; 		   <br />//是否锁定  0没锁定  1锁定	     ***int*** isLock;		    <br />//邮箱认证 0否 1是	     ***int*** isEmail;		    <br />//交易密码	     String accountPassWord;		<br />//前台用户id	     Long customerId;			   <br /> //用户邮箱	     String mobile;		    <br />//真实名	     String truename;	    <br />//真实姓	     String surname;	<br />//customerType int(5) DEFAULT '1' COMMENT '客户类型customerType甲类账户1(普通的，默认)，乙类账号2，丙类账户3'	   <br />//盐	     String salt;		   <br />//身份证	     String cardcode;		    <br />//邮箱	     String email;		    <br />//性别	     Integer sex;		    <br />//详细地址	     String postalAddress;	   <br />//谷歌认证状态(0否，1是)	     Integer googleState;		    <br />//申请ip	     String messIp;		    <br />//手机号	     String phone;	  <br />//手机认证状态(0否，1是)	     Integer phoneState;		<br />//0 未实名 1 待审核 2 已实名 3 已拒绝	     Integer states;	    <br />//用户登录uuid	     String uuid;	     <br />//是否管理员	     Integer isAdmin;	    <br /> //是否禁言	     Integer isGag;	    <br />},    info: {      <br />//真实名	     String trueName;	    <br />//国家	     String country;	   <br /> //证件类型	     String cardType;	    <br />//证件号	     String cardId;	    <br />//姓	     String surname;	    <br />//证件名称	     String papersType;	    <br />//证件类型      (2护照 1身份证)	     String type;     <br />},} |
-| ---------- | ------------------------------------------------------------ |
-|            |                                                              |
+| ***示例***                                                   |
+| ------------------------------------------------------------ |
+| //# Response<br />obj { <br />isChongbi：是否开启充币需要实名认证 （0 开 1关）<br />isTrade:是否开启交易需要实名认证（ 0开 1关）<br />isTibi：是否开启提币需要实名认证（0开1关）   <br />witfee:提现手续费率   <br />maxWithdrawMoneyOneTime:一次最大提现   <br />languageCode:定价币   <br />maxWithdrawMoney:一天最大提现   <br />List<CoinAccount> coinAccount: {  <br />CoinAccount：{ <br />// 币的id 在wap端使用 	 <br />Long id;	<br />//币代码	   String coinCode;	  <br />// 可用总额	  BigDecimal hotMoney;	 <br />// 冻结总额	  BigDecimal coldMoney;<br />//币的名字	  String name;	 <br />//币的类型	  String currencyType;	 <br />//虚拟账号	  String accountNum;	<br /> //为手机端使用	  String tokenId;	 <br />//币的保留几位小数	  Integer keepDecimalForCoin;	 <br />//api使用0为法币1为虚拟货币	 Integer moneyAndCoin;  <br />}      <br /> user: {    <br /> //用户名/手机号	String username;		<br /> //密码	String password;		    <br />//用户唯一标识	     String userCode;		    <br />//是否实名0没有实名，1实名	      ***int*** isReal;  	     <br />//是否能交易  0可以交易  1不能交易	      ***int*** isChange;  	     <br />//是否禁用  0没有禁用 1禁用	     ***int*** isDelete; 		   <br />//是否锁定  0没锁定  1锁定	     ***int*** isLock;		    <br />//邮箱认证 0否 1是	     ***int*** isEmail;		    <br />//交易密码	     String accountPassWord;		<br />//前台用户id	     Long customerId;			   <br /> //用户邮箱	     String mobile;		    <br />//真实名	     String truename;	    <br />//真实姓	     String surname;	<br />//customerType int(5) DEFAULT '1' COMMENT '客户类型customerType甲类账户1(普通的，默认)，乙类账号2，丙类账户3'	   <br />//盐	     String salt;		   <br />//身份证	     String cardcode;		    <br />//邮箱	     String email;		    <br />//性别	     Integer sex;		    <br />//详细地址	     String postalAddress;	   <br />//谷歌认证状态(0否，1是)	     Integer googleState;		    <br />//申请ip	     String messIp;		    <br />//手机号	     String phone;	  <br />//手机认证状态(0否，1是)	     Integer phoneState;		<br />//0 未实名 1 待审核 2 已实名 3 已拒绝	     Integer states;	    <br />//用户登录uuid	     String uuid;	     <br />//是否管理员	     Integer isAdmin;	    <br /> //是否禁言	     Integer isGag;	    <br />},    info: {      <br />//真实名	     String trueName;	    <br />//国家	     String country;	   <br /> //证件类型	     String cardType;	    <br />//证件号	     String cardId;	    <br />//姓	     String surname;	    <br />//证件名称	     String papersType;	    <br />//证件类型      (2护照 1身份证)	     String type;     <br />},} |
 
 ## **2．9取消指定委托**
 
@@ -169,7 +169,7 @@
 
  
 
-***返回参数:***
+**返回参数:**
 
  
 
